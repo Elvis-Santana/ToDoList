@@ -1,19 +1,32 @@
-<header class="header">
+<!-- <header class="header">
 
 </header>
 
 <main class="main">
 
+  <section>
+
+    @for (item of array; track $index) {
+      <app-card-task
+       [titulo]="item.titulo
+       " [conteudo]="item.conteudo">
+
+      </app-card-task>
+
+    }
+
+  </section>
+
 </main>
 
 <footer class="footer">
 
- <div>
   <address>
     Todos os direitos reservados a &copy;Elvis Santana Guimarães
   </address>
 
-  <!-- <span class="linha-vertical"></span>
+
+  <hr>
 
   <div class="contatos">
 
@@ -25,9 +38,9 @@
     </mat-icon>
     <mat-icon fontIcon="email">
     </mat-icon>
-  </div> -->
-
- </div>
+  </div>
 
 
-</footer>
+</footer> -->
+<app-forms-task></app-forms-task>
+
