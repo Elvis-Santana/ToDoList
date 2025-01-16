@@ -1,61 +1,88 @@
+@import '../globalMeasures.scss';
+@import '../globalMeasures.scss';
+
+
+@mixin FlexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .header {
   width: 100%;
-  height: 10vh;
-  background-color: rgb(184, 181, 181);
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: safe;
+  align-items: center;
+  gap: 1em;
+
+  nav {
+    // background-color: rgb(217, 255, 0);
+    @include FlexCenter();
+    width: auto;
+
+
+    ol {
+      display: flex;
+
+      li {
+        margin-left: 20px;
+
+        a {
+          border-radius: 5px;
+
+          padding: 10px;
+          border: none;
+          box-shadow: 0 0 5px rgb(12, 8, 0);
+
+          &:hover {}
+        }
+      }
+    }
+  }
+
+  div {
+    @include FlexCenter();
+
+
+    // background-color: rgb(255, 0, 212);
+
+  }
+
+  @media(max-width:$celular) {
+    flex-direction: column;
+
+  }
+
+
+  @media(min-width:$minTablets) and (max-width:$maxTablets) {
+    flex-direction: column;
+
+  }
+
 }
 
 .main {
   width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-}
-
-section {
-
-   display: grid;
-   width: 90%;
-   padding: 10px;
-   grid-template-columns: repeat(4, 1fr);
-   grid-template-rows: repeat(1, 1fr);
-    overflow-y: auto;
-    gap: 20px;
-
-  &::-webkit-scrollbar {
-    background-color: transparent;
-
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: 50px;
-  }
-
-
-  @media(max-width:1670px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media(max-width:1189px) {
-    grid-template-columns: repeat(2, 1fr);
-
-  }
-
-  @media(max-width:800px) {
-    grid-template-columns: repeat(1, 1fr);
-
-  }
-
+  min-height: 80vh;
+  position: relative;
+  z-index: 5;
 
 }
+
+
 
 
 .footer {
+  @include FlexCenter();
+  min-height: 10vh;
   width: 100%;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: auto;
+  overflow-x: hidden;
+
+
   flex-direction: column;
   background-color: rgb(235, 233, 233);
 

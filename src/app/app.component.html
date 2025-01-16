@@ -1,21 +1,27 @@
-<!-- <header class="header">
+<header class="header">
+  <app-modal></app-modal>
+  <nav>
+    <ol>
+      <li>
+        <a [routerLink]="['/list']" color="">Tarefas</a>
 
+      </li>
+      <li>
+        <a [routerLink]="['/form-task']" color="">Nova Tarefa</a>
+
+      </li>
+    </ol>
+  </nav>
+
+    <app-filter />
+
+  
 </header>
 
 <main class="main">
 
-  <section>
 
-    @for (item of array; track $index) {
-      <app-card-task
-       [titulo]="item.titulo
-       " [conteudo]="item.conteudo">
-
-      </app-card-task>
-
-    }
-
-  </section>
+  <router-outlet></router-outlet>
 
 </main>
 
@@ -24,6 +30,7 @@
   <address>
     Todos os direitos reservados a &copy;Elvis Santana Guimarães
   </address>
+
 
 
   <hr>
@@ -41,6 +48,4 @@
   </div>
 
 
-</footer> -->
-<app-forms-task></app-forms-task>
-
+</footer>
