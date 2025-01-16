@@ -1,0 +1,47 @@
+<article>
+  <section>
+    <div class="AFazer">
+
+      <h4 class="titulo">A Fazer</h4>
+
+     <div>
+      @for (item of dataAfazer; track $index) {
+        <app-card-task [task]="item"></app-card-task>
+        }
+     </div>
+
+
+    </div>
+
+    <div class="Fazendo">
+      <h4 class="titulo">Fazendo</h4>
+
+
+     <div>
+      @for (item of dataFazendo; track $index) {
+
+        <app-card-task [task]="item"></app-card-task>
+
+
+        }
+     </div>
+
+    </div>
+
+    <div class="Feita">
+
+      <h4 class="titulo">Feita</h4>
+
+
+      <div>
+        @for (item of dataFeito; track $index) {
+
+          <app-card-task [task]="item"></app-card-task>
+
+
+          }
+      </div>
+
+    </div>
+  </section>
+</article>
