@@ -1,0 +1,53 @@
+<dialog [open]="this.open()">
+  <section>
+
+    <article>
+      <h2>
+        Opções
+      </h2>
+
+      <div class="content-btns">
+        <button class="btnRemove" (click)="renove(this.task()?.id!)">remover</button>
+
+        @switch (this.task()?.status) {
+        @case (this.ststus.aFazer) {
+
+        <button class="btnFazerndo" (click)="updateStatus(this.task()!,ststus.fazendo)">
+          Fazerndo
+        </button>
+
+        <button class="btnFeito" (click)="updateStatus(this.task()!,ststus.feita)">
+          Feito
+        </button>
+        }
+        @case (this.ststus.fazendo) {
+        <button class="btnAFazer" (click)="updateStatus(this.task()!,ststus.aFazer)">
+          A fazer
+        </button>
+
+        <button class="btnFeito" (click)="updateStatus(this.task()!,ststus.feita)">
+          Feito
+        </button>
+        }
+        @case (this.ststus.feita) {
+
+        <button class="btnAFazer" (click)="updateStatus(this.task()!,ststus.aFazer)">
+          A fazer
+        </button>
+
+        <button class="btnFazerndo" (click)="updateStatus(this.task()!,ststus.fazendo)"> Fazerndo
+
+        </button>
+        }
+        }
+      </div>
+
+      <div class="content-btn-close">
+        <button class="btnFechar" type="button" (click)="modalService.close()">FECHAR</button>
+
+      </div>
+    </article>
+
+  </section>
+
+</dialog>
