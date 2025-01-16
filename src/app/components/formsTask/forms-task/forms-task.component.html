@@ -1,5 +1,24 @@
-<form [formGroup]="from">
-  <input type="text" name="" id="" formControlName="titulo">
-  <input type="text" name="" id="" formControlName="conteudo">
-<button>X</button>
+<form [formGroup]="form">
+
+  <div>
+    <label for="Titulo">Titulo</label>
+    <input type="text" name="Titulo" id="" formControlName="titulo">
+
+    <label for="Conteudo">Conteudo</label>
+
+    <textarea name="Conteudo" formControlName="conteudo"> </textarea>
+
+    @if(this.formsTaskService.getTaskFromForm()){
+      <button (click)="onEventUpdateContent()">Update</button>
+    }@else {
+
+      <button class="button type1" (click)="onEventTask()">
+        <span class="btn-txt">Enter</span>
+
+      </button>
+
+    }
+
+  </div>
+
 </form>
