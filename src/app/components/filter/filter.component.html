@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <h5>
+      Filtros :
+    </h5>
+  </div>
+
+  <select [formControl]="select">
+    <option [value]="status.aFazer">A Fazer</option>
+    <option [value]="status.fazendo">Fazendo</option>
+    <option [value]="status.feita">Feita</option>
+  </select>
+  <button (click)="onEventReset()">Resert Filter</button>
+
+</div>
