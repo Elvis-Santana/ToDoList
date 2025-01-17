@@ -12,17 +12,17 @@
     position: absolute;
     font-size: medium;
     z-index: 100;
-    background-color: $color;
+    background-color:$color;
     padding: 10px;
-    border-radius: .5rem;
+    border-bottom-right-radius: .5rem;
     width: 100px;
-    text-align: center
+    text-align: center;
   }
 }
 
 article {
   @include flexContentCenter();
-  height: 80vh;
+  height:800px;
 }
 
 section {
@@ -103,11 +103,10 @@ section {
     flex-direction: column;
     padding: 10px;
     gap: 10px;
-    border-radius: 10px;
 
 
     @media(max-width:$celular) {
-      overflow-y: hidden;
+      overflow-y: auto;
       overflow-x: auto;
       flex-direction: row;
       align-items: center;
@@ -132,12 +131,8 @@ section {
     }
 
 
-    @media(min-width:$minTablets) and (max-width:$maxTablets) {
-      &:has(> :only-child) {
-        justify-content: center;
 
-      }
-    }
+
   }
 
   display: flex;
@@ -149,8 +144,10 @@ section {
   @media(min-width:$minTablets) and (max-width:$maxTablets) {
     &:has(> :only-child) {
       justify-content: center;
+      align-items: center;
 
     }
+
   }
 
 }

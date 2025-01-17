@@ -24,9 +24,8 @@ $delete-color: #E57373;
   height: 30px;
   border: none;
   background-color: $edit-color;
- @include FlexCenter();
+  @include FlexCenter();
   margin-left: auto;
-  border-radius: 50px;
   -webkit-transition: background-color 0.15s ease-out;
   -moz-transition: background-color 0.15s ease-out;
   -o-transition: background-color 0.15s ease-out;
@@ -65,7 +64,7 @@ $delete-color: #E57373;
   height: 200px;
   background-color: $background-color;
   box-shadow: 0px 0px 10px $shadow-color ;
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   padding: 30px;
 
@@ -79,6 +78,8 @@ $delete-color: #E57373;
   @media(min-width:$minTablets ) and (max-width:$maxTablets) {
     height: 200px;
     width: 100%;
+
+
 
 
   }
@@ -187,5 +188,3 @@ hr {
   @include btnDefaultStyles();
   @include defaultHoverAndActive()
 }
-
-
