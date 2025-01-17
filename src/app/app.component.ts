@@ -7,7 +7,6 @@ import { ITask } from './interfaces/task';
 import { FormsTaskComponent } from './components/formsTask/forms-task/forms-task.component';
 import { DatabaseService } from './services/database/database.service';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './components/list/lsit/list.component';
 import { FilterTaskService } from './services/filter/filter-task.service';
 import { Status } from './enum/ststus';
 import { ModalComponent } from './components/modal/modal/modal.component';

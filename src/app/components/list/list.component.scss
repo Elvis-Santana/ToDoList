@@ -1,5 +1,5 @@
-@import '../../../../globalMeasures.scss';
-@import '../../../../globalColres.scss';
+@import '../../../globalColres.scss';
+@import '../../../globalMeasures.scss';
 
 @mixin flexContentCenter() {
   display: flex;

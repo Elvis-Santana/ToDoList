@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { DatabaseService } from '../../../services/database/database.service';
 import { CommonModule } from '@angular/common';
-import { CardTaskComponent } from '../../cardTask/card-task/card-task.component';
-import { ITask } from '../../../interfaces/task';
-import { FilterTaskService } from '../../../services/filter/filter-task.service';
-import { filter, map } from 'rxjs';
-import { Status } from '../../../enum/ststus';
+import { Component, inject } from '@angular/core';
+import { Status } from '../../enum/ststus';
+import { ITask } from '../../interfaces/task';
+import { DatabaseService } from '../../services/database/database.service';
+import { FilterTaskService } from '../../services/filter/filter-task.service';
+import { CardTaskComponent } from '../cardTask/card-task/card-task.component';
+
 
 @Component({
   selector: 'app-list',
