@@ -41,29 +41,15 @@ $delete-color: #E57373;
 
 }
 
-@mixin defaultHoverAndActive($defaultHoverAndActive: true) {
-  @if $defaultHoverAndActive {
-    &:hover {
-      background-color: $edit-hover-color;
-    }
-
-    &:active {
-      background-color: $edit-active-color;
-    }
+@mixin hoverAndActive($color-hover: $edit-hover-color, $color-active: $edit-active-color) {
+  &:hover {
+    background-color: $color-hover;
   }
 
-  @else {
-    &:hover {
-      background-color: rgb(138, 36, 36);
-    }
-
-    &:active {
-      background-color: rgb(238, 13, 13);
-    }
+  &:active {
+    background-color: $color-active;
   }
 }
-
-
 
 .card {
 
@@ -123,8 +109,6 @@ hr {
   -webkit-box-orient: vertical;
 }
 
-
-
 .txt-aFazer {
 
   @include txtStyles($AFazer-text-cor, none)
@@ -139,16 +123,15 @@ hr {
 }
 
 
-
 .btn {
   @include btnDefaultStylesCard($edit-color);
 
   &.onEdit {
-    @include defaultHoverAndActive(false);
+    @include hoverAndActive(rgb(138, 36, 36), rgb(238, 13, 13));
   }
 
   &.edit {
-    @include defaultHoverAndActive();
+    @include hoverAndActive();
 
   }
 
@@ -156,5 +139,5 @@ hr {
 
 .btnOptions {
   @include btnDefaultStylesCard($edit-color);
-  @include defaultHoverAndActive()
+  @include hoverAndActive();
 }

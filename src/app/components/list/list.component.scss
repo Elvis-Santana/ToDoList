@@ -1,7 +1,7 @@
 @import '../../../globalColres.scss';
 @import '../../../globalMeasures.scss';
 
-@mixin flexContentCenter() {
+%flexContentCenter {
   display: flex;
   justify-content: center;
 }
@@ -40,7 +40,7 @@
 }
 
 article {
-  @include flexContentCenter();
+  @extend %flexContentCenter ;
   height: 100%;
   width: 100%;
 }
@@ -130,6 +130,7 @@ section {
     overflow-y: auto;
     overflow-x: auto;
     flex-direction: row;
+    
     align-items: center;
     z-index: 5;
 

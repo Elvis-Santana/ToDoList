@@ -8,15 +8,9 @@ dialog {
   width: 500px;
   margin: 0 auto;
   border: none;
-  box-shadow: 0 0 5px 1px #212529 ;
+  box-shadow: 0 0 5px 1px #212529;
   border-radius: 10px;
-
   margin-top: 1rem;
-
-
-
-
-
 
   @media(min-width:$minTablets) and (max-width:maxTablets) {}
 
@@ -37,7 +31,8 @@ section {
   article {
     display: flex;
     flex-direction: column;
-    h2{
+
+    h2 {
       margin: 1rem;
     }
 
@@ -49,7 +44,7 @@ section {
       gap: 1rem;
       justify-content: center;
       box-shadow: 0 0 5px 1px #ccc9c9;
-      padding:1rem;
+      padding: 1rem;
 
 
     }
@@ -64,50 +59,52 @@ section {
 }
 
 
-.content-btn-close{
+.content-btn-close {
   display: flex;
   justify-content: end;
   margin-top: auto;
-  padding: .5rem 1rem .5rem 1rem   ;
+  padding: .5rem 1rem .5rem 1rem;
 
 
 
 }
 
-.btnAFazer,
-.btnFazerndo,
-.btnFeito,
-.btnFechar,
-.btnRemove {
+
+%btnBase {
   width: 80px;
   height: 40px;
   color: $text-color;
   cursor: pointer;
 }
 
-.btnAFazer {
-  background-color: #f0f0f0;
+@mixin minBtnBase($color) {
+  @extend %btnBase;
+  background-color: $color;
 
 }
 
+.btnAFazer {
+  @include minBtnBase(#f0f0f0);
+}
+
 .btnFazerndo {
-  background-color: #ffcc00;
+  @include minBtnBase(#ffcc00);
 
 }
 
 .btnFeito {
-  background-color: #4caf50;
+  @include minBtnBase(#4caf50);
 
 }
 
 .btnRemove {
-  background-color: red;
+  @include minBtnBase(red);
 
 }
 
 .btnFechar {
-  background-color: rgb(118, 122, 121);
-  box-shadow:  0 0 5px;
+  box-shadow: 0 0 5px;
+  @include minBtnBase(rgb(118, 122, 121));
 
 
 }
