@@ -1,5 +1,7 @@
 @import '../../../../globalMeasures.scss';
 @import '../../../../globalColres.scss';
+@import '../../../../globalColres.scss';
+
 
 $background-color: #FFFFFF;
 $shadow-color: rgba(0, 0, 0, 0.1);
@@ -107,20 +109,24 @@ hr {
   -webkit-line-clamp: 5;
   /* Ajuste o número de linhas */
   -webkit-box-orient: vertical;
+  font-family: 'Roboto' serif;
+  font-weight: 500;
+
+  &.txt-aFazer {
+
+    @include txtStyles($AFazer-text-cor, none)
+  }
+
+  &.txt-fazendo {
+    @include txtStyles($Fazendo-text-cor, none)
+  }
+
+  &.txt-feita {
+    @include txtStyles($feita-text-cor, line-through)
+  }
 }
 
-.txt-aFazer {
 
-  @include txtStyles($AFazer-text-cor, none)
-}
-
-.txt-fazendo {
-  @include txtStyles($Fazendo-text-cor, none)
-}
-
-.txt-feita {
-  @include txtStyles($feita-text-cor, line-through)
-}
 
 
 .btn {

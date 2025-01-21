@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, inject, OnDestroy } from '@angular/core';
+import { Component, ElementRef, inject, OnDestroy, OnInit, Query, QueryList, Renderer2, ViewChild, viewChild, ViewChildren } from '@angular/core';
 import { Status } from '../../enum/ststus';
 import { ITask } from '../../interfaces/task';
 import { DatabaseService } from '../../services/database/database.service';
@@ -19,8 +19,13 @@ import { CardTaskComponent } from '../cardTask/card-task/card-task.component';
   styleUrl: './list.component.scss'
 })
 export class ListComponent implements OnDestroy {
+  @ViewChildren('elemento') el = QueryList<ElementRef>;
   protected database = inject(DatabaseService);
   protected filterTaskService = inject(FilterTaskService);
+
+  protected Renderer = inject(Renderer2);
+
+
   protected dataAfazer: ITask[] = []
   protected dataFazendo: ITask[] = []
   protected dataFeito: ITask[] = []
@@ -38,10 +43,13 @@ export class ListComponent implements OnDestroy {
     )
     this.filterTaskService.reset$.subscribe(() => this.loadData())
 
+
   }
 
 
+
   public filter(status: Status) {
+
     this.database.getTaskByStstus(status).subscribe(tasks => {
       switch (status) {
         case Status.aFazer:
@@ -53,7 +61,6 @@ export class ListComponent implements OnDestroy {
 
         case Status.fazendo:
           this.status = Status.fazendo;
-
           this.dataFazendo = tasks
           this.dataAfazer = []
           this.dataFeito = []

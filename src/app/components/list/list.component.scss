@@ -69,7 +69,7 @@ section {
 
   .AFazer {
     background-color: $background-color-AFazer;
-    box-shadow: 0 0 10px $background-color-AFazer;
+   box-shadow: 0 0 10px $background-color-AFazer;
 
     @include Titulo($background-color-AFazer);
     @include btn-scrollbar($background-color-AFazer)
@@ -105,8 +105,7 @@ section {
   .focus {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+
     width: 100%;
     height: 100%;
     justify-items: center;
@@ -114,6 +113,11 @@ section {
     padding: 10px;
     gap: 10px;
     overflow: auto;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+
+
+
 
   }
 
@@ -130,7 +134,7 @@ section {
     overflow-y: auto;
     overflow-x: auto;
     flex-direction: row;
-    
+
     align-items: center;
     z-index: 5;
 

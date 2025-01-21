@@ -1,16 +1,17 @@
 <form [formGroup]="form">
 
   <div class="content-meg">
-    <h2>Escreva sua nova tarefa</h2>
+    <h2>{{ 'Escreva sua nova tarefa '| titlecase  }}</h2>
 
   </div>
   <div class="content-inputs">
     <label for="Titulo">Titulo</label>
-    <input type="text" name="Titulo" id="" formControlName="titulo">
+    <input role="titulo" type="text" name="Titulo" id="" formControlName="titulo">
 
     <label for="Conteudo">Conteudo</label>
 
-    <textarea name="Conteudo" formControlName="conteudo"> </textarea>
+
+    <textarea role="conteudo" name="Conteudo" formControlName="conteudo"> </textarea>
 
     @if(this.formsTaskService.getTaskFromForm()){
     <button class="btn" (click)="onEventUpdateContent()">Update</button>

@@ -7,6 +7,7 @@ import { Status } from '../../../enum/ststus';
 import { FormsTaskService } from '../../../services/formsTask/forms-task.service';
 import { Task } from 'zone.js/lib/zone-impl';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 export interface IFrom {
@@ -18,6 +19,7 @@ export interface IFrom {
   standalone: true,
   imports: [
     ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './forms-task.component.html',
   styleUrl: './forms-task.component.scss'

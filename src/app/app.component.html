@@ -4,11 +4,11 @@
     <nav>
       <ol>
         <li>
-          <a [routerLink]="['/list']" color="">Tarefas</a>
+          <a class="btn" [routerLink]="['/list']" color="">Tarefas</a>
 
         </li>
         <li>
-          <a [routerLink]="['/form-task']" color="">Nova Tarefa</a>
+          <a class="btn" [routerLink]="['/form-task']" color="">Nova Tarefa</a>
 
         </li>
       </ol>
@@ -21,8 +21,7 @@
 
   <main class="main">
 
-      <router-outlet></router-outlet>
-
+        <router-outlet></router-outlet>
 
 
   </main>
