@@ -25,6 +25,8 @@ export class ModalComponent {
   }
   public updateStatus(task: ITask, Status: Status) {
     this.data.udapteStatus(task, Status);
+    this.modalService.close();
+
   }
 
 
