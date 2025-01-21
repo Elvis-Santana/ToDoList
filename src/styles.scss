@@ -9,6 +9,7 @@
 html, body {
   height: 100dvh;
   font-family: sans-serif;
+
 }
 
 /* Tipografia básica */
@@ -25,15 +26,12 @@ a {
   color: inherit;
 }
 
-button{
+.btn{
   border: none;
   border-radius: 10px;
+  :hover{
+    // background: darken($color: #d60909, $amount: 50%);
+  }
 }
-// button, input, textarea {
-//   font-family: inherit;
-//   border: none;
-//   outline: none;
-//   background: none;
-// }
 
 

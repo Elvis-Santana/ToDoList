@@ -12,19 +12,24 @@ $edit-hover-color: #FB8C00;
 $edit-active-color: #EF6C00;
 $delete-color: #E57373;
 
+@mixin txtStyles($color, $txtDecoration) {
+  color: $color;
+  text-decoration: $txtDecoration;
 
-@mixin FlexCenter() {
+}
+
+@mixin flexCenter() {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin btnDefaultStyles() {
+@mixin btnDefaultStylesCard($color) {
   width: 30px;
   height: 30px;
   border: none;
-  background-color: $edit-color;
-  @include FlexCenter();
+  background-color: $color;
+  @include flexCenter();
   margin-left: auto;
   -webkit-transition: background-color 0.15s ease-out;
   -moz-transition: background-color 0.15s ease-out;
@@ -58,62 +63,29 @@ $delete-color: #E57373;
   }
 }
 
+
+
 .card {
 
-  width: 100%;
   height: 200px;
   background-color: $background-color;
   box-shadow: 0px 0px 10px $shadow-color ;
   border-radius: 10px;
   border: none;
   padding: 30px;
-
-
-
-  @media(max-width:$celular) {
-    height: 100%;
-    width: 80px * 4;
-  }
-
-  @media(min-width:$minTablets ) and (max-width:$maxTablets) {
-    height: 200px;
-    width: 100%;
-
-
-
-
-  }
+  width: 80px * 4;
 
   .cardTitulo {
-
-
-    @include FlexCenter();
+    @include flexCenter();
 
     h3 {
-
       width: 90%;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-
-    }
-
-
-
-
-  }
-
-  .cardFooter {
-    height: auto;
-    display: flex;
-    justify-content: space-evenly;
-
-
-    .btnRemove {
-
-      background-color: $delete-color;
     }
   }
+
 }
 
 hr {
@@ -153,38 +125,36 @@ hr {
 
 
 
-.txt-feita {
-  text-decoration: line-through;
-  color: $feita-text-cor;
-}
-
 .txt-aFazer {
 
-  color: $AFazer-text-cor;
-
+  @include txtStyles($AFazer-text-cor, none)
 }
 
 .txt-fazendo {
-  color: $Fazendo-text-cor;
-
+  @include txtStyles($Fazendo-text-cor, none)
 }
 
-.onEdit,
-.edit {
-  @include btnDefaultStyles();
+.txt-feita {
+  @include txtStyles($feita-text-cor, line-through)
 }
 
-.onEdit {
-  @include defaultHoverAndActive(false);
 
-}
 
-.edit {
-  @include defaultHoverAndActive();
+.btn {
+  @include btnDefaultStylesCard($edit-color);
+
+  &.onEdit {
+    @include defaultHoverAndActive(false);
+  }
+
+  &.edit {
+    @include defaultHoverAndActive();
+
+  }
 
 }
 
 .btnOptions {
-  @include btnDefaultStyles();
+  @include btnDefaultStylesCard($edit-color);
   @include defaultHoverAndActive()
 }

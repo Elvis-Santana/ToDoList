@@ -1,6 +1,10 @@
 <form [formGroup]="form">
 
-  <div>
+  <div class="content-meg">
+    <h2>Escreva sua nova tarefa</h2>
+
+  </div>
+  <div class="content-inputs">
     <label for="Titulo">Titulo</label>
     <input type="text" name="Titulo" id="" formControlName="titulo">
 
@@ -9,16 +13,18 @@
     <textarea name="Conteudo" formControlName="conteudo"> </textarea>
 
     @if(this.formsTaskService.getTaskFromForm()){
-      <button (click)="onEventUpdateContent()">Update</button>
+    <button class="btn" (click)="onEventUpdateContent()">Update</button>
     }@else {
 
-      <button class="button type1" (click)="onEventTask()">
-        <span class="btn-txt">Enter</span>
+    <button class="btn button type1" (click)="onEventTask()">
+      <span class="btn-txt">Enter</span>
 
-      </button>
+    </button>
 
     }
 
   </div>
 
 </form>
+
+

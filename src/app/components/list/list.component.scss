@@ -11,8 +11,8 @@
   .titulo {
     position: absolute;
     font-size: medium;
-    z-index: 100;
-    background-color:$color;
+    z-index: 20;
+    background-color: $color;
     padding: 10px;
     border-bottom-right-radius: .5rem;
     width: 100px;
@@ -20,9 +20,34 @@
   }
 }
 
+@mixin btn-scrollbar($color) {
+  // div {
+  //   &::-webkit-scrollbar {
+  //     background-color: transparent;
+
+  //   }
+
+  //   &::-webkit-scrollbar-thumb {
+  //     background-color:  #d11111ce;
+  //     box-shadow:0 0 30px $color inset;
+  //     border: 2px solid black;
+  //      border-radius:.5rem;
+
+  //   }
+
+  // }
+
+}
+
 article {
   @include flexContentCenter();
-  height:800px;
+  height: 100%;
+  width: 100%;
+}
+
+.focus-status {
+  grid-template-rows: none;
+  grid-template-columns: none;
 }
 
 section {
@@ -30,37 +55,16 @@ section {
   height: 100%;
   width: 90%;
   padding: 10px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  gap: 20px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
 
-  &::-webkit-scrollbar {
-    background-color: transparent;
-
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: 50px;
-  }
-
-  @media(max-width:$maxTablets) {
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(1, 1fr);
-
-
-
-  }
 
   @media(max-width:$celular) {
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(1, 1fr);
 
     width: 100%;
 
-
   }
-
 
 
   .AFazer {
@@ -68,7 +72,7 @@ section {
     box-shadow: 0 0 10px $background-color-AFazer;
 
     @include Titulo($background-color-AFazer);
-
+    @include btn-scrollbar($background-color-AFazer)
   }
 
   .Fazendo {
@@ -76,9 +80,7 @@ section {
     box-shadow: 0 0 10px $background-color-Fazendo;
 
     @include Titulo($background-color-Fazendo);
-
-
-
+    @include btn-scrollbar($background-color-Fazendo)
   }
 
   .Feita {
@@ -86,7 +88,7 @@ section {
     box-shadow: 0 0 10px $background-color-Feita;
 
     @include Titulo($background-color-Feita);
-
+    @include btn-scrollbar($background-color-Feita)
   }
 }
 
@@ -94,8 +96,28 @@ section {
 .Fazendo,
 .Feita {
   position: relative;
+  display: flex;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
 
-  div {
+  .focus {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+
+    padding: 10px;
+    gap: 10px;
+    overflow: auto;
+
+  }
+
+  .div {
     display: flex;
     overflow: auto;
     width: 100%;
@@ -105,49 +127,21 @@ section {
     gap: 10px;
 
 
+    overflow-y: auto;
+    overflow-x: auto;
+    flex-direction: row;
+    align-items: center;
+    z-index: 5;
+
     @media(max-width:$celular) {
-      overflow-y: auto;
-      overflow-x: auto;
-      flex-direction: row;
-      align-items: center;
-      z-index: 5;
-
-      >* {
-        height: 100%;
-      }
-
       &:has(> :nth-child(1) + *) {
         justify-content: space-between;
-
-
       }
 
       &:has(> :only-child) {
         justify-content: center;
 
-
       }
-
     }
-
-
-
-
   }
-
-  display: flex;
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-
-  @media(min-width:$minTablets) and (max-width:$maxTablets) {
-    &:has(> :only-child) {
-      justify-content: center;
-      align-items: center;
-
-    }
-
-  }
-
 }

@@ -7,35 +7,35 @@
       </h2>
 
       <div class="content-btns">
-        <button class="btnRemove" (click)="renove(this.task()?.id!)">remover</button>
+        <button class="btn btnRemove" (click)="renove(this.task()?.id!)">remover</button>
 
         @switch (this.task()?.status) {
         @case (this.ststus.aFazer) {
 
-        <button class="btnFazerndo" (click)="updateStatus(this.task()!,ststus.fazendo)">
+        <button class="btn btnFazerndo" (click)="updateStatus(this.task()!,ststus.fazendo)">
           Fazerndo
         </button>
 
-        <button class="btnFeito" (click)="updateStatus(this.task()!,ststus.feita)">
+        <button class="btn btnFeito" (click)="updateStatus(this.task()!,ststus.feita)">
           Feito
         </button>
         }
         @case (this.ststus.fazendo) {
-        <button class="btnAFazer" (click)="updateStatus(this.task()!,ststus.aFazer)">
+        <button class="btn btnAFazer" (click)="updateStatus(this.task()!,ststus.aFazer)">
           A fazer
         </button>
 
-        <button class="btnFeito" (click)="updateStatus(this.task()!,ststus.feita)">
+        <button class="btn btnFeito" (click)="updateStatus(this.task()!,ststus.feita)">
           Feito
         </button>
         }
         @case (this.ststus.feita) {
 
-        <button class="btnAFazer" (click)="updateStatus(this.task()!,ststus.aFazer)">
+        <button class="btn btnAFazer" (click)="updateStatus(this.task()!,ststus.aFazer)">
           A fazer
         </button>
 
-        <button class="btnFazerndo" (click)="updateStatus(this.task()!,ststus.fazendo)"> Fazerndo
+        <button class="btn btnFazerndo" (click)="updateStatus(this.task()!,ststus.fazendo)"> Fazerndo
 
         </button>
         }
@@ -43,7 +43,7 @@
       </div>
 
       <div class="content-btn-close">
-        <button class="btnFechar" type="button" (click)="modalService.close()">FECHAR</button>
+        <button class="btn btnFechar" type="button" (click)="modalService.close()">FECHAR</button>
 
       </div>
     </article>

@@ -2,11 +2,11 @@
   <div class="cardTitulo">
 
     <h3>{{task.titulo}}</h3>
-    <button [ngClass]="isEdit()?'onEdit':'edit'" (click)="editTask()">
+    <button  class="btn" [ngClass]="isEdit()?'onEdit':'edit'" (click)="editTask()">
       <mat-icon fontIcon="edit"></mat-icon>
 
     </button>
-    <button class="btnOptions" (click)="options()">
+    <button class="btn btnOptions" (click)="options()">
       <mat-icon fontIcon="settings"></mat-icon>
 
     </button>

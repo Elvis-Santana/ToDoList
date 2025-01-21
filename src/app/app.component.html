@@ -1,51 +1,54 @@
-<header class="header">
-  <app-modal></app-modal>
-  <nav>
-    <ol>
-      <li>
-        <a [routerLink]="['/list']" color="">Tarefas</a>
+<div class="page-container">
+  <header class="header">
+    <app-modal></app-modal>
+    <nav>
+      <ol>
+        <li>
+          <a [routerLink]="['/list']" color="">Tarefas</a>
 
-      </li>
-      <li>
-        <a [routerLink]="['/form-task']" color="">Nova Tarefa</a>
+        </li>
+        <li>
+          <a [routerLink]="['/form-task']" color="">Nova Tarefa</a>
 
-      </li>
-    </ol>
-  </nav>
+        </li>
+      </ol>
+    </nav>
 
     <app-filter />
 
-  
-</header>
 
-<main class="main">
+  </header>
 
+  <main class="main">
 
-  <router-outlet></router-outlet>
-
-</main>
-
-<footer class="footer">
-
-  <address>
-    Todos os direitos reservados a &copy;Elvis Santana Guimarães
-  </address>
+      <router-outlet></router-outlet>
 
 
 
-  <hr>
+  </main>
 
-  <div class="contatos">
+  <footer class="footer">
 
-    <mat-icon fontIcon="email">
-    </mat-icon>
-    <mat-icon fontIcon="email">
-    </mat-icon>
-    <mat-icon fontIcon="email">
-    </mat-icon>
-    <mat-icon fontIcon="email">
-    </mat-icon>
-  </div>
+    <address>
+      Todos os direitos reservados a &copy;Elvis Santana Guimarães
+    </address>
 
 
-</footer>
+
+    <hr>
+
+    <div class="contatos">
+
+      <mat-icon fontIcon="email">
+      </mat-icon>
+      <mat-icon fontIcon="email">
+      </mat-icon>
+      <mat-icon fontIcon="email">
+      </mat-icon>
+      <mat-icon fontIcon="email">
+      </mat-icon>
+    </div>
+
+
+  </footer>
+</div>

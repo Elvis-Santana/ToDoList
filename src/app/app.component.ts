@@ -20,7 +20,8 @@ import { FilterComponent } from './components/filter/filter.component';
     CommonModule,
     RouterLink,
     ModalComponent,
-    FilterComponent
+    FilterComponent,
+    FormsTaskComponent
 
   ],
   templateUrl: './app.component.html',

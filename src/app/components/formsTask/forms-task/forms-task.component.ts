@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ITask } from '../../../interfaces/task';
 import { DatabaseService } from '../../../services/database/database.service';
@@ -22,7 +22,8 @@ export interface IFrom {
   templateUrl: './forms-task.component.html',
   styleUrl: './forms-task.component.scss'
 })
-export class FormsTaskComponent {
+export class FormsTaskComponent implements OnDestroy {
+
 
   protected data = inject(DatabaseService);
   protected formsTaskService = inject(FormsTaskService);
@@ -43,10 +44,16 @@ export class FormsTaskComponent {
   public onEventTask() {
 
     const task = (this.form.value as ITask);
+
+    if (!task)
+      console.error("TASK null ou undefined");
+
+
     task.id = uuidv4();
     task.status = Status.aFazer;
     this.data.setOnTask(task);
     this.form.reset();
+
   }
   public onEventUpdateContent() {
 
@@ -65,4 +72,9 @@ export class FormsTaskComponent {
 
   }
 
+  ngOnDestroy(): void {
+    this.form.reset();
+    this.formsTaskService.resetTaskFromForm();
+
+  }
 }
