@@ -1,12 +1,12 @@
 <article>
-  <section [ngClass]="this.status!=null?'focus-status':null">
+  <section [ngClass]="this.status()!=null?'focus-status':null">
 
-    @if( this.status =='a fazer' || this.status == null){
+    @if( this.status() =='a fazer' || this.status() == null){
     <div class="AFazer">
 
       <h4 class="titulo">A Fazer</h4>
 
-      <div #elemento [ngClass]="this.status =='a fazer'?'focus':'div'">
+      <div [ngClass]="this.status() =='a fazer'?'focus':'div'">
         @for (item of dataAfazer; track $index) {
         <app-card-task [task]="item"></app-card-task>
         }
@@ -15,13 +15,13 @@
 
     </div>
     }
-    @if(this.status =='fazendo' || this.status == null){
+    @if(this.status() =='fazendo' || this.status()  == null){
 
     <div class="Fazendo">
       <h4 class="titulo">Fazendo</h4>
 
 
-      <div #elemento  [ngClass]="this.status =='fazendo'?'focus':'div'">
+      <div [ngClass]="this.status() =='fazendo'?'focus':'div'">
         @for (item of dataFazendo; track $index) {
 
         <app-card-task [task]="item"></app-card-task>
@@ -29,19 +29,19 @@
 
 
 
-      }
+        }
       </div>
 
     </div>
     }
-    @if(this.status =='feita' || this.status == null){
+    @if(this.status() =='feita'  || this.status()  == null){
 
     <div class="Feita">
 
       <h4 class="titulo">Feita</h4>
 
 
-      <div #elemento  [ngClass]="this.status =='feita'?'focus':'div'">
+      <div [ngClass]="this.status() =='feita'?'focus':'div'">
         @for (item of dataFeito; track $index) {
 
         <app-card-task [task]="item"></app-card-task>

@@ -19,30 +19,30 @@ import { CardTaskComponent } from '../cardTask/card-task/card-task.component';
   styleUrl: './list.component.scss'
 })
 export class ListComponent implements OnDestroy {
-  @ViewChildren('elemento') el = QueryList<ElementRef>;
   protected database = inject(DatabaseService);
   protected filterTaskService = inject(FilterTaskService);
 
-  protected Renderer = inject(Renderer2);
 
 
   protected dataAfazer: ITask[] = []
   protected dataFazendo: ITask[] = []
   protected dataFeito: ITask[] = []
-  protected status: Status | null = null;
+  protected status = () => this.filterTaskService.status();
 
   protected data$ = this.database.obDatabase();
 
 
 
   constructor() {
-    this.filterTaskService.eventEmmiterResetSelect();
+
     this.loadData();
     this.filterTaskService.event$.subscribe(() =>
       this.filter(this.filterTaskService.status()!)
     )
-    this.filterTaskService.reset$.subscribe(() => this.loadData())
-
+    this.filterTaskService.reset$.subscribe(() => {
+      this.loadData()
+      console.log(this.status);
+    })
 
   }
 
@@ -53,36 +53,31 @@ export class ListComponent implements OnDestroy {
     this.database.getTaskByStstus(status).subscribe(tasks => {
       switch (status) {
         case Status.aFazer:
-          this.status = Status.aFazer;
           this.dataAfazer = tasks;
           this.dataFazendo = []
           this.dataFeito = []
           break;
 
         case Status.fazendo:
-          this.status = Status.fazendo;
           this.dataFazendo = tasks
           this.dataAfazer = []
           this.dataFeito = []
           break;
 
         case Status.feita:
-          this.status = Status.feita;
-
           this.dataFeito = tasks
           this.dataFazendo = []
           this.dataAfazer = []
           break;
       }
     })
+
   }
 
   public loadData() {
     this.dataAfazer = []
     this.dataFazendo = []
     this.dataFeito = []
-    this.status = null;
-
     this.data$.subscribe(tasks => {
       this.dataAfazer = tasks.filterFromStatus(Status.aFazer)
       this.dataFazendo = tasks.filterFromStatus(Status.fazendo)

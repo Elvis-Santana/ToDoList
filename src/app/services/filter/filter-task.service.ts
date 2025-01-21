@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { EventEmitter, Injectable, signal } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Status } from '../../enum/ststus';
 
@@ -21,7 +21,7 @@ export class FilterTaskService {
 
   public eventEmmiterReset = () => this.resetSubject$.next();
 
-  public eventEmmiterResetSelect =() => this.resetSelectSubject$.next()
+  public eventEmmiterResetSelect = () => this.resetSelectSubject$.next()
 
 
 
