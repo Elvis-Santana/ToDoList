@@ -1,6 +1,6 @@
 # ToDoList
 
-[Deplay do projeto](https://to-do-list-blush-zeta.vercel.app/)
+[deploy do projeto](https://to-do-list-blush-zeta.vercel.app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
 
