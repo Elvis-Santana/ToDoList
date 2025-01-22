@@ -10,5 +10,9 @@ export const routes: Routes = [
   {
     path: "form-task",
     component: FormsTaskComponent
+  },
+  {
+    path:'',
+    component:ListComponent
   }
 ];
