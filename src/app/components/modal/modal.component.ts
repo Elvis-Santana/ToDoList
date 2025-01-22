@@ -1,13 +1,16 @@
 import { Component, Inject, inject } from '@angular/core';
-import { ModalService } from '../../../services/modal/modal.service';
-import { ITask } from '../../../interfaces/task';
-import { Status } from '../../../enum/ststus';
-import { DatabaseService } from '../../../services/database/database.service';
+import { ModalService } from '../../services/modal/modal.service';
+import { ITask } from '../../interfaces/task';
+import { Status } from '../../enum/ststus';
+import { DatabaseService } from '../../services/database/database.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss'
 })

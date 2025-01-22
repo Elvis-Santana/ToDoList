@@ -1,10 +1,10 @@
 import { Component, inject, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { ITask } from '../../../interfaces/task';
-import { DatabaseService } from '../../../services/database/database.service';
+import { ITask } from '../../interfaces/task';
+import { DatabaseService } from '../../services/database/database.service';
 import { v4 as uuidv4 } from 'uuid';
-import { Status } from '../../../enum/ststus';
-import { FormsTaskService } from '../../../services/formsTask/forms-task.service';
+import { Status } from '../../enum/ststus';
+import { FormsTaskService } from '../../services/formsTask/forms-task.service';
 import { Task } from 'zone.js/lib/zone-impl';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';

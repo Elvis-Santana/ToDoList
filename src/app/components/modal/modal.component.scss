@@ -1,5 +1,5 @@
-@import '../../../../globalMeasures.scss';
-@import '../../../../globalColres.scss';
+@import '../../../globalMeasures.scss';
+@import '../../../globalColres.scss';
 
 dialog {
   height: 200px;
@@ -75,6 +75,8 @@ section {
   height: 40px;
   color: $text-color;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 @mixin minBtnBase($color) {

@@ -4,7 +4,7 @@ import { Status } from '../../enum/ststus';
 import { ITask } from '../../interfaces/task';
 import { DatabaseService } from '../../services/database/database.service';
 import { FilterTaskService } from '../../services/filter/filter-task.service';
-import { CardTaskComponent } from '../cardTask/card-task/card-task.component';
+import { CardTaskComponent } from '../cardTask/card-task.component';
 
 
 @Component({

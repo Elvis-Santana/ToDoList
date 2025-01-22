@@ -7,7 +7,9 @@
       </h2>
 
       <div class="content-btns">
-        <button class="btn btnRemove" (click)="renove(this.task()?.id!)">remover</button>
+        <button class="btn btnRemove" (click)="renove(this.task()?.id!)">
+          remover
+        </button>
 
         @switch (this.task()?.status) {
         @case (this.ststus.aFazer) {
