@@ -1,0 +1,35 @@
+<article class="card">
+  <div class="cardTitulo">
+
+    <h3>{{task.titulo}}</h3>
+    <button  class="btn" [ngClass]="isEdit()?'onEdit':'edit'" (click)="editTask()">
+      <mat-icon fontIcon="edit"></mat-icon>
+
+    </button>
+    <button class="btn btnOptions" (click)="options()">
+      <mat-icon fontIcon="settings"></mat-icon>
+
+    </button>
+  </div>
+
+  <hr>
+
+  <div class="cardbady">
+    <div class="cardActions">
+      <p [ngClass]="
+        {
+          'card-from-conteudo':true,
+          'txt-feita': task.status ==ststus.feita,
+          'txt-aFazer':task.status == ststus.aFazer,
+          'txt-fazendo':task.status == ststus.fazendo
+
+        }">
+        {{task.conteudo}}
+      </p>
+    </div>
+  </div>
+
+
+
+</article>
+
