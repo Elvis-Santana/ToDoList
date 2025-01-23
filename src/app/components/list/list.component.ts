@@ -53,19 +53,19 @@ export class ListComponent implements OnDestroy {
     this.database.getTaskByStstus(status).subscribe(tasks => {
       switch (status) {
         case Status.aFazer:
-          this.dataAfazer = tasks;
+          this.dataAfazer = tasks.order();
           this.dataFazendo = []
           this.dataFeito = []
           break;
 
         case Status.fazendo:
-          this.dataFazendo = tasks
+          this.dataFazendo =  tasks.order();
           this.dataAfazer = []
           this.dataFeito = []
           break;
 
         case Status.feita:
-          this.dataFeito = tasks
+          this.dataFeito =  tasks.order();
           this.dataFazendo = []
           this.dataAfazer = []
           break;
@@ -79,9 +79,10 @@ export class ListComponent implements OnDestroy {
     this.dataFazendo = []
     this.dataFeito = []
     this.data$.subscribe(tasks => {
-      this.dataAfazer = tasks.filterFromStatus(Status.aFazer)
-      this.dataFazendo = tasks.filterFromStatus(Status.fazendo)
-      this.dataFeito = tasks.filterFromStatus(Status.feita)
+      
+      this.dataAfazer = tasks.filterFromStatus(Status.aFazer).order();
+      this.dataFazendo = tasks.filterFromStatus(Status.fazendo).order()
+      this.dataFeito = tasks.filterFromStatus(Status.feita).order();
 
     });
   }
