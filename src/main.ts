@@ -7,7 +7,7 @@ import { ITask } from './app/interfaces/task';
 
 Array.prototype.filterFromStatus = function (ststus: Status) {
   return this.filter((x: ITask) => x.status == ststus)
-};
+}
 
 Array.prototype.order = function () {
   const array = this.map(x => x);
@@ -19,7 +19,11 @@ Array.prototype.order = function () {
   }
 
   return newArray;
-};
+}
+
+Array.prototype.empty = function() {
+  return [];
+}
 
 declare global {
   interface Array<T> {
@@ -30,6 +34,11 @@ declare global {
 declare global {
   interface Array<T> {
     order(): T[]
+  }
+}
+declare global {
+  interface Array<T> {
+    empty(): T[]
   }
 }
 
