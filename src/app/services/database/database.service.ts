@@ -3,6 +3,8 @@ import { BehaviorSubject, map, of } from 'rxjs';
 import { ITask } from '../../interfaces/task';
 import { Status } from '../../enum/ststus';
 import { Task } from 'zone.js/lib/zone-impl';
+import { stringify } from 'uuid';
+import { empty } from 'uuidv4';
 
 @Injectable({
   providedIn: 'root'
@@ -11,24 +13,28 @@ export class DatabaseService {
 
   protected key: string = "Task"
   protected database$ = new BehaviorSubject<Array<ITask>>(this.getTask())
-
+  protected aFazer = Array<ITask>();
+  protected fazendo = Array<ITask>()
+  protected feita = Array<ITask>();
+  protected findTasksFromStatus !: ITask;
 
 
   constructor() { }
 
+
   public setOnTask(task: ITask) {
-    const update = [...this.database$.getValue(), task];
+    const update = [task, ...this.database$.getValue()];
+
     this.setDatadase(update)
 
     this.setTask(JSON.stringify(update))
   }
 
-
   public getTask() {
     const task = localStorage.getItem(this.key);
     if (task != null)
       return JSON.parse(task)
-    return []
+    return Array<ITask>();
   }
 
   public removerTask(id: string) {
@@ -45,14 +51,32 @@ export class DatabaseService {
 
 
   public udapteStatus(task: ITask, ststus: Status) {
-    const tasks = this.database$.getValue();
-    const index = tasks.indexOf(task);
-    tasks![index].status = ststus;
-    this.taskMap(tasks)
+    const tasks = [...this.database$.getValue()];
+
+    this.findTasksFromStatus = tasks.find(x => x.id == task.id)!;
+    this.findTasksFromStatus.status = ststus;
+
+    this.aFazer = this.sortFromUpdateStatus(task, tasks, Status.aFazer)!;
+    this.fazendo = this.sortFromUpdateStatus(task, tasks, Status.fazendo)!;
+    this.feita = this.sortFromUpdateStatus(task, tasks, Status.feita)!;
 
 
+    this.setDatadase([...this.aFazer, ...this.fazendo, ...this.feita]);
+    this.setTask(JSON.stringify(this.database$.getValue()))
   }
 
+  sortFromUpdateStatus(taskInput: ITask, arrayInput: ITask[], statusFilter: Status) {
+    if (taskInput.status == statusFilter) {
+      const index = arrayInput.indexOf(this.findTasksFromStatus);
+
+      if (index !== -1) {
+        arrayInput.splice(index, 1);
+        return [this.findTasksFromStatus, ...arrayInput.filterFromStatus(statusFilter)];
+      }
+    }
+    return [...arrayInput.filterFromStatus(statusFilter)];
+
+  }
   public udapteTaskContent(task: ITask) {
     const tasks = this.database$.getValue();
     const findTasks = tasks.find(x => x.id == task.id)
@@ -69,12 +93,11 @@ export class DatabaseService {
   })
 
 
-  public getTaskByStstus = (status:Status) =>
-    this.database$.pipe(
-      map((t) =>
-        t.filterFromStatus(status)
-      )
+  public getTaskByStstus = (status: Status) => this.database$.pipe(
+    map((t) =>
+      t.filterFromStatus(status)
     )
+  )
 
 }
 

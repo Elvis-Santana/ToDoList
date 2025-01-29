@@ -22,16 +22,12 @@ export class ListComponent implements OnDestroy {
   protected database = inject(DatabaseService);
   protected filterTaskService = inject(FilterTaskService);
 
-
-
-  protected dataAfazer: ITask[] = []
-  protected dataFazendo: ITask[] = []
-  protected dataFeito: ITask[] = []
+  protected dataAfazer = Array<ITask>();
+  protected dataFazendo = Array<ITask>();
+  protected dataFeito = Array<ITask>();
   protected status = () => this.filterTaskService.status();
 
   protected data$ = this.database.obDatabase();
-
-
 
   constructor() {
 
@@ -41,7 +37,6 @@ export class ListComponent implements OnDestroy {
     )
     this.filterTaskService.reset$.subscribe(() => {
       this.loadData()
-      console.log(this.status);
     })
 
   }
@@ -53,21 +48,21 @@ export class ListComponent implements OnDestroy {
     this.database.getTaskByStstus(status).subscribe(tasks => {
       switch (status) {
         case Status.aFazer:
-          this.dataAfazer = tasks.order();
-          this.dataFazendo = []
-          this.dataFeito = []
+          this.dataAfazer = tasks;
+          this.dataFazendo.empty();
+          this.dataFeito.empty();
           break;
 
         case Status.fazendo:
-          this.dataFazendo =  tasks.order();
-          this.dataAfazer = []
-          this.dataFeito = []
+          this.dataFazendo = tasks;
+          this.dataAfazer.empty();
+          this.dataFeito.empty();
           break;
 
         case Status.feita:
-          this.dataFeito =  tasks.order();
-          this.dataFazendo = []
-          this.dataAfazer = []
+          this.dataFeito = tasks;
+          this.dataFazendo.empty();
+          this.dataAfazer.empty();
           break;
       }
     })
@@ -75,14 +70,14 @@ export class ListComponent implements OnDestroy {
   }
 
   public loadData() {
-    this.dataAfazer = []
-    this.dataFazendo = []
-    this.dataFeito = []
+    this.dataAfazer.empty();
+    this.dataFazendo.empty();
+    this.dataFeito.empty();
     this.data$.subscribe(tasks => {
-      
-      this.dataAfazer = tasks.filterFromStatus(Status.aFazer).order();
-      this.dataFazendo = tasks.filterFromStatus(Status.fazendo).order()
-      this.dataFeito = tasks.filterFromStatus(Status.feita).order();
+
+      this.dataAfazer = tasks.filterFromStatus(Status.aFazer);
+      this.dataFazendo = tasks.filterFromStatus(Status.fazendo);
+      this.dataFeito = tasks.filterFromStatus(Status.feita);
 
     });
   }
