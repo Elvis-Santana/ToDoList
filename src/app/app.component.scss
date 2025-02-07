@@ -2,6 +2,7 @@
 @import '../globalColres.scss';
 
 
+
 $hover-color-link: white;
 $background-color-link: aliceblue;
 
@@ -33,17 +34,14 @@ $background-color-link: aliceblue;
   width: 100%;
   min-height: 100px;
   display: flex;
-  // background-color: #ff4800;
-
   flex-direction: row;
   justify-content: safe;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em 6.3em;
 
   nav {
     @extend %flexCenter;
     width: auto;
-
 
     ol {
       display: flex;
@@ -120,6 +118,72 @@ $background-color-link: aliceblue;
 
   hr {
     width: 50%;
+  }
+
+}
+
+.li-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: white;
+  overflow: hidden;
+  cursor: pointer;
+
+  mat-icon {
+
+    border: none;
+    position: absolute;
+    color: #007bff;
+
+  }
+
+  &.start-anim-arrow_moviment {
+    mat-icon {
+
+      animation: arrow_moviment .3s ease-in-out;
+
+
+    }
+
+
+  }
+
+
+
+
+}
+
+
+@keyframes arrow_moviment {
+
+  0% {
+    right: 0;
+  }
+
+
+
+  50% {
+    right: 50px;
+    display: none;
+
+  }
+
+  75% {
+    right: -30px;
+    display: none;
+
+
+  }
+
+
+  100% {
+    right: 0;
+
   }
 
 }

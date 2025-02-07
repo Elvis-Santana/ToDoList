@@ -26,10 +26,11 @@ export class ListComponent implements OnDestroy {
   protected dataFazendo = Array<ITask>();
   protected dataFeito = Array<ITask>();
   protected status = () => this.filterTaskService.status();
-
+  protected _status = Status;
   protected data$ = this.database.obDatabase();
 
   constructor() {
+
 
     this.loadData();
     this.filterTaskService.event$.subscribe(() =>
@@ -79,9 +80,22 @@ export class ListComponent implements OnDestroy {
       this.dataFazendo = tasks.filterFromStatus(Status.fazendo);
       this.dataFeito = tasks.filterFromStatus(Status.feita);
 
+
+
     });
   }
 
+
+  getClass(Array: Array<any>, ststus: Status) {
+
+    return {
+      focus: this.status() == ststus,
+      div: this.status() !== ststus,
+      OnColumn: Array.length <= 3
+
+
+    }
+  }
 
   ngOnDestroy(): void {
     this.filterTaskService.eventEmmiterResetSelect();

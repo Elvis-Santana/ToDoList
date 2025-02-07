@@ -63,6 +63,7 @@ export class DatabaseService {
 
     this.setDatadase([...this.aFazer, ...this.fazendo, ...this.feita]);
     this.setTask(JSON.stringify(this.database$.getValue()))
+
   }
 
   sortFromUpdateStatus(taskInput: ITask, arrayInput: ITask[], statusFilter: Status) {
