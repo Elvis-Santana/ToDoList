@@ -29,18 +29,16 @@ declare global {
   interface Array<T> {
     filterFromStatus(ststus: Status): T[];
   }
-}
-
-declare global {
   interface Array<T> {
     order(): T[]
   }
-}
-declare global {
+
   interface Array<T> {
     empty(): T[]
   }
 }
+
+
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
