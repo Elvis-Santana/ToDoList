@@ -20,30 +20,23 @@ import { ModalService } from '../../services/modal/modal.service';
 })
 export class CardTaskComponent {
 
-   task = input.required<ITask>();
+  task = input.required<ITask>();
   protected router = inject(Router);
   protected modalService = inject(ModalService)
-
   protected formsTaskService = inject(FormsTaskService);
-
   protected ststus = Status;
-
-  protected isEdit=() => this.modalService.getOpen();
+  protected isEdit = () => this.modalService.getOpen();
 
   public editTask() {
     if (!this.isEdit()) {
       this.formsTaskService.setTaskFromForm(this.task());
       this.router.navigate(['form-task']);
-
     }
-
 
   }
 
   public options() {
     this.modalService.shaw()
     this.modalService.setTask(this.task())
-
-
   }
 }

@@ -30,16 +30,7 @@ export class ListComponent implements OnDestroy {
   protected data$ = this.database.obDatabase();
 
   constructor() {
-
-
     this.loadData();
-    this.filterTaskService.event$.subscribe(() =>
-      this.filter(this.filterTaskService.status()!)
-    )
-    this.filterTaskService.reset$.subscribe(() => {
-      this.loadData()
-    })
-
   }
 
 
@@ -98,6 +89,5 @@ export class ListComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.filterTaskService.eventEmmiterResetSelect();
   }
 }

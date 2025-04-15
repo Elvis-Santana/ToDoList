@@ -18,7 +18,7 @@ export class FilterComponent {
 
 
   protected filterTaskService = inject(FilterTaskService)
-  public select = new FormControl<any>("hidden");
+  protected select = new FormControl<any>("hidden");
   protected status = Status;
 
   constructor() {
@@ -30,17 +30,14 @@ export class FilterComponent {
         this.onEventFilter(ststus!)
 
       })
-    this.filterTaskService.resetSelect$.subscribe(() => this.onEventReset())
   }
 
 
   public onEventFilter(status: Status) {
-    this.filterTaskService.status.set(status)
-    this.filterTaskService.eventEmmiterFromFilter()
+    this.filterTaskService.status.set(status);
   }
 
   public onEventReset = () => {
-    this.filterTaskService.eventEmmiterReset();
     this.select.reset();
   }
 

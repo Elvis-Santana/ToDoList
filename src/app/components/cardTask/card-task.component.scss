@@ -53,7 +53,7 @@ $delete-color: #E57373;
   }
 }
 
-.card {
+:host {
 
   height: 200px;
   background-color: $background-color;
@@ -61,7 +61,7 @@ $delete-color: #E57373;
   border-radius: 10px;
   border: none;
   padding: 30px;
-  width: 80px * 4;
+  min-width: calc(80px * 4);
 
   .cardTitulo {
     @include flexCenter();
@@ -97,23 +97,17 @@ hr {
 
 .card-from-conteudo {
 
-
-
   width: 100%;
-  /* Ajuste a largura conforme necessário */
-
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 5;
-  /* Ajuste o número de linhas */
   -webkit-box-orient: vertical;
   font-family: 'Roboto' serif;
   font-weight: 500;
 
   &.txt-aFazer {
-
     @include txtStyles($AFazer-text-cor, none)
   }
 
@@ -138,7 +132,6 @@ hr {
 
   &.edit {
     @include hoverAndActive();
-
   }
 
 }
