@@ -1,15 +1,19 @@
 <div>
-  <div>
+  <!-- <div>
     <h5>
       Filtrar :
     </h5>
-  </div>
+  </div> -->
 
-  <select [formControl]="select">
-    <option [value]="status.aFazer">A Fazer</option>
+  <select required [formControl]="select"  >
+
+    <option value="hidden"  disabled selected hidden >FILTRAR</option>
+
+    <option [value]="status.aFazer" >A Fazer</option>
     <option [value]="status.fazendo">Fazendo</option>
     <option [value]="status.feita">Feita</option>
   </select>
   <button class=""  (click)="onEventReset()">Resetar Filtro</button>
 
 </div>
+

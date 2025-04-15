@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DatabaseService } from '../../services/database/database.service';
 import { ITask } from '../../interfaces/task';
@@ -20,7 +20,7 @@ import { ModalService } from '../../services/modal/modal.service';
 })
 export class CardTaskComponent {
 
-  @Input() task!: ITask;
+   task = input.required<ITask>();
   protected router = inject(Router);
   protected modalService = inject(ModalService)
 
@@ -32,7 +32,7 @@ export class CardTaskComponent {
 
   public editTask() {
     if (!this.isEdit()) {
-      this.formsTaskService.setTaskFromForm(this.task);
+      this.formsTaskService.setTaskFromForm(this.task());
       this.router.navigate(['form-task']);
 
     }
@@ -42,7 +42,7 @@ export class CardTaskComponent {
 
   public options() {
     this.modalService.shaw()
-    this.modalService.setTask(this.task)
+    this.modalService.setTask(this.task())
 
 
   }

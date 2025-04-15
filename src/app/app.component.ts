@@ -1,17 +1,11 @@
-import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild, viewChild } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, effect, ElementRef, inject, OnInit, signal, ViewChild, viewChild } from '@angular/core';
+import { Router, RouterLink, RouterOutlet ,ActivatedRoute} from '@angular/router';
 import { MatIconModule } from "@angular/material/icon"
-import { CardTaskComponent } from './components/cardTask/card-task.component';
-import { Task } from 'zone.js/lib/zone-impl';
-import { ITask } from './interfaces/task';
-import { FormsTaskComponent } from './components/formsTask/forms-task.component';
-import { DatabaseService } from './services/database/database.service';
+
 import { CommonModule } from '@angular/common';
-import { FilterTaskService } from './services/filter/filter-task.service';
-import { Status } from './enum/ststus';
 import { ModalComponent } from './components/modal/modal.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { debounceTime, from, fromEvent } from 'rxjs';
+import { debounceTime,  fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -23,19 +17,19 @@ import { debounceTime, from, fromEvent } from 'rxjs';
     RouterLink,
     ModalComponent,
     FilterComponent,
-    FormsTaskComponent,
     MatIconModule
 
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit  {
 
 
   title = 'ToDoList';
-
   @ViewChild('arrow_back') protected arrow_back !: ElementRef;
+  protected route = signal<string>("");
+ 
 
   ngAfterViewInit(): void {
     const element = this.arrow_back.nativeElement as HTMLLIElement;

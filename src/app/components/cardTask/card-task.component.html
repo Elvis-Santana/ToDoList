@@ -1,8 +1,8 @@
 <article class="card">
   <div class="cardTitulo">
 
-    <h3>{{task.titulo}}</h3>
-    <button  class="btn" [ngClass]="isEdit()?'onEdit':'edit'" (click)="editTask()">
+    <h3>{{task().titulo}}</h3>
+    <button class="btn" [ngClass]="isEdit()?'onEdit':'edit'" (click)="editTask()">
       <mat-icon fontIcon="edit"></mat-icon>
 
     </button>
@@ -19,12 +19,12 @@
       <p [ngClass]="
         {
           'card-from-conteudo':true,
-          'txt-feita': task.status ==ststus.feita,
-          'txt-aFazer':task.status == ststus.aFazer,
-          'txt-fazendo':task.status == ststus.fazendo
+          'txt-feita': task().status ==ststus.feita,
+          'txt-aFazer':task().status == ststus.aFazer,
+          'txt-fazendo':task().status == ststus.fazendo
 
         }">
-        {{task.conteudo}}
+        {{task().conteudo}}
       </p>
     </div>
   </div>
@@ -32,4 +32,3 @@
 
 
 </article>
-

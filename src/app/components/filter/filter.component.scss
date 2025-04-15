@@ -21,13 +21,9 @@ select {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   width: 100px;
-  transition: .1s;
+  text-align:center;
 
-  // &:hover {
-  //   background-color: rgb(204, 204, 204);
-  //   width: 105px;
-  //   box-shadow: 0 0 5px 2px rgb(204, 204, 204);
-  // }
+
 }
 
 button {
@@ -41,12 +37,6 @@ button {
   cursor: pointer;
   background-color: rgb(247, 245, 245);
 
-  transition: .1s;
 
-  // &:hover {
-  //   background-color: rgb(204, 204, 204);
-  //   width: 85px;
-  //   height: 45px;
-  //   box-shadow: 0 0 5px 2px rgb(204, 204, 204);
-  // }
+
 }
