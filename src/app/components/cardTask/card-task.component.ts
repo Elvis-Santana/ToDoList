@@ -9,14 +9,13 @@ import { Router } from '@angular/router';
 import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
-  selector: 'app-card-task',
-  standalone: true,
-  imports: [
-    MatIconModule,
-    NgClass
-  ],
-  templateUrl: './card-task.component.html',
-  styleUrl: './card-task.component.scss'
+    selector: 'app-card-task',
+    imports: [
+        MatIconModule,
+        NgClass
+    ],
+    templateUrl: './card-task.component.html',
+    styleUrl: './card-task.component.scss'
 })
 export class CardTaskComponent {
 

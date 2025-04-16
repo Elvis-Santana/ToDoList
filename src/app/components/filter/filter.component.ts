@@ -5,14 +5,12 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { filter, map } from 'rxjs';
 
 @Component({
-  selector: 'app-filter',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule
-
-  ],
-  templateUrl: './filter.component.html',
-  styleUrl: './filter.component.scss'
+    selector: 'app-filter',
+    imports: [
+        ReactiveFormsModule
+    ],
+    templateUrl: './filter.component.html',
+    styleUrl: './filter.component.scss'
 })
 export class FilterComponent {
 

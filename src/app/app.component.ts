@@ -8,20 +8,18 @@ import { FilterComponent } from './components/filter/filter.component';
 import { debounceTime,  fromEvent } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    MatIconModule,
-    CommonModule,
-    RouterLink,
-    ModalComponent,
-    FilterComponent,
-    MatIconModule
-
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        MatIconModule,
+        CommonModule,
+        RouterLink,
+        ModalComponent,
+        FilterComponent,
+        MatIconModule
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements AfterViewInit  {
 

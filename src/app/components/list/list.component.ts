@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, ElementRef, inject, OnDestroy, OnInit, Query, QueryList, Renderer2, ViewChild, viewChild, ViewChildren } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { Status } from '../../enum/ststus';
 import { ITask } from '../../interfaces/task';
 import { DatabaseService } from '../../services/database/database.service';
@@ -8,15 +8,14 @@ import { CardTaskComponent } from '../cardTask/card-task.component';
 
 
 @Component({
-  selector: 'app-list',
-  standalone: true,
-  imports: [
-    CommonModule,
-    CardTaskComponent,
-    NgClass
-  ],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+    selector: 'app-list',
+    imports: [
+        CommonModule,
+        CardTaskComponent,
+        NgClass
+    ],
+    templateUrl: './list.component.html',
+    styleUrl: './list.component.scss'
 })
 export class ListComponent implements OnDestroy {
   protected database = inject(DatabaseService);

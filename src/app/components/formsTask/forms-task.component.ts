@@ -15,14 +15,13 @@ export interface IFrom {
   titulo: Status
 }
 @Component({
-  selector: 'app-forms-task',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  templateUrl: './forms-task.component.html',
-  styleUrl: './forms-task.component.scss'
+    selector: 'app-forms-task',
+    imports: [
+        CommonModule,
+        ReactiveFormsModule
+    ],
+    templateUrl: './forms-task.component.html',
+    styleUrl: './forms-task.component.scss'
 })
 export class FormsTaskComponent implements OnDestroy {
 
