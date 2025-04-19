@@ -1,4 +1,4 @@
-import { Status } from "../enum/ststus";
+import { Status } from "../shared/enum/status";
 
 export interface ITask {
   id: string,

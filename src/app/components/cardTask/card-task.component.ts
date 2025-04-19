@@ -2,7 +2,7 @@ import { Component, inject, input, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DatabaseService } from '../../services/database/database.service';
 import { ITask } from '../../interfaces/task';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 import { NgClass } from '@angular/common';
 import { FormsTaskService } from '../../services/formsTask/forms-task.service';
 import { Router } from '@angular/router';

@@ -1,6 +1,6 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, inject, OnDestroy } from '@angular/core';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 import { ITask } from '../../interfaces/task';
 import { DatabaseService } from '../../services/database/database.service';
 import { FilterTaskService } from '../../services/filter/filter-task.service';

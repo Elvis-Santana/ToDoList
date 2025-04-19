@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, of } from 'rxjs';
 import { ITask } from '../../interfaces/task';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 import { Task } from 'zone.js/lib/zone-impl';
 import { stringify } from 'uuid';
 import { empty } from 'uuidv4';

@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable, signal } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 
 @Injectable({
   providedIn: 'root'

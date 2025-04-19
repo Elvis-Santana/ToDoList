@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 import { FilterTaskService } from '../../services/filter/filter-task.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { filter, map } from 'rxjs';

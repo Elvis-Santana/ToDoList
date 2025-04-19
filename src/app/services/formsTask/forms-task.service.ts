@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ITask } from '../../interfaces/task';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 
 @Injectable({
   providedIn: 'root'

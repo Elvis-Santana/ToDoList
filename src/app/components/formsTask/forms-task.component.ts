@@ -3,7 +3,7 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ITask } from '../../interfaces/task';
 import { DatabaseService } from '../../services/database/database.service';
 import { v4 as uuidv4 } from 'uuid';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 import { FormsTaskService } from '../../services/formsTask/forms-task.service';
 import { Task } from 'zone.js/lib/zone-impl';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,33 +39,34 @@ export class FormsTaskComponent implements OnDestroy {
 
   public onEventTask() {
 
-    const task = (this.form.value as ITask);
-
+    const task = this.createdTaskRetrun();
     if (!task)
       console.error("TASK null ou undefined");
-
-
-    task.id = uuidv4();
-    task.status = Status.aFazer;
     this.data.setOnTask(task);
     this.form.reset();
 
   }
+  private createdTaskRetrun() {
+    const task = (this.form.value as ITask);
+    task.id = uuidv4();
+    task.status = Status.aFazer;
+    return task;
+  }
+
   public onEventUpdateContent() {
-
-    const updateTask: ITask =
-    {
-      id: this.task!.id,
-      status: this.task!.status,
-      ...this.form.value as IFrom,
-    }
-
+    const updateTask: ITask =this.taskUpdateReturn();
     this.data.udapteTaskContent(updateTask)
     this.form.reset();
     this.formsTaskService.resetTaskFromForm();
     this.router.navigate([''])
+  }
 
-
+  private taskUpdateReturn(): ITask {
+    return {
+      id: this.task!.id,
+      status: this.task!.status,
+      ...this.form.value as IFrom,
+    };
   }
 
   ngOnDestroy(): void {

@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { ModalService } from '../../services/modal/modal.service';
 import { ITask } from '../../interfaces/task';
-import { Status } from '../../enum/ststus';
+import { Status } from '../../shared/enum/status';
 import { DatabaseService } from '../../services/database/database.service';
 import { CommonModule } from '@angular/common';
 
