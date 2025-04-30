@@ -10,18 +10,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 
-export interface IFrom {
+export interface IForm {
   conteudo: string,
-  titulo: Status
+  titulo: string
 }
 @Component({
-    selector: 'app-forms-task',
-    imports: [
-        CommonModule,
-        ReactiveFormsModule
-    ],
-    templateUrl: './forms-task.component.html',
-    styleUrl: './forms-task.component.scss'
+  selector: 'app-forms-task',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+  ],
+  templateUrl: './forms-task.component.html',
+  styleUrl: './forms-task.component.scss'
 })
 export class FormsTaskComponent implements OnDestroy {
 
@@ -37,37 +37,26 @@ export class FormsTaskComponent implements OnDestroy {
 
   });
 
-  public onEventTask() {
+  public onEventCreatedTask() {
 
-    const task = this.createdTaskRetrun();
+    const task = this.data.createdTask(this.form.value as IForm);
     if (!task)
       console.error("TASK null ou undefined");
     this.data.setOnTask(task);
     this.form.reset();
 
   }
-  private createdTaskRetrun() {
-    const task = (this.form.value as ITask);
-    task.id = uuidv4();
-    task.status = Status.aFazer;
-    return task;
-  }
+
 
   public onEventUpdateContent() {
-    const updateTask: ITask =this.taskUpdateReturn();
+    const updateTask: ITask = this.data.taskUpdate(this.task!,this.form.value as IForm);
     this.data.udapteTaskContent(updateTask)
     this.form.reset();
     this.formsTaskService.resetTaskFromForm();
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 
-  private taskUpdateReturn(): ITask {
-    return {
-      id: this.task!.id,
-      status: this.task!.status,
-      ...this.form.value as IFrom,
-    };
-  }
+
 
   ngOnDestroy(): void {
     this.form.reset();

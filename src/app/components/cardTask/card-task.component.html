@@ -1,6 +1,6 @@
   <div class="cardTitulo">
 
-    <h3>{{task().titulo}}</h3>
+    <h3 data-testid="card-task-test-titulo">{{task().titulo}}</h3>
     <button class="btn" [ngClass]="isEdit()?'onEdit':'edit'" (click)="editTask()">
       <mat-icon fontIcon="edit"></mat-icon>
 
@@ -15,7 +15,7 @@
 
   <div class="cardbady">
     <div class="cardActions">
-      <p [ngClass]="
+      <p  data-testid="card-task-test-conteudo" [ngClass]="
         {
           'card-from-conteudo':true,
           'txt-feita': task().status ==ststus.feita,

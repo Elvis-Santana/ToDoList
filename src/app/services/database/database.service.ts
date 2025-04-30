@@ -5,13 +5,17 @@ import { Status } from '../../shared/enum/status';
 import { Task } from 'zone.js/lib/zone-impl';
 import { stringify } from 'uuid';
 import { empty } from 'uuidv4';
+import { IForm } from '../../components/formsTask/forms-task.component';
+import { v4 as uuidv4 } from 'uuid';
+import '../../utils/extensions'
+import { Key } from '../../shared/enum/key';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
 
-  protected key: string = "Task"
+  protected key: Key = Key.KEY;
   protected database$ = new BehaviorSubject<Array<ITask>>(this.getTask())
   protected aFazer = Array<ITask>();
   protected fazendo = Array<ITask>()
@@ -19,14 +23,9 @@ export class DatabaseService {
   protected findTasksFromStatus !: ITask;
 
 
-  constructor() { }
-
-
   public setOnTask(task: ITask) {
     const update = [task, ...this.database$.getValue()];
-
     this.setDatadase(update)
-
     this.setTask(JSON.stringify(update))
   }
 
@@ -84,7 +83,7 @@ export class DatabaseService {
     const index = tasks.indexOf(findTasks!);
     tasks![index] = task;
 
-    this.taskMap(tasks)
+    this.taskMap(tasks);
 
   }
 
@@ -95,10 +94,27 @@ export class DatabaseService {
 
 
   public getTaskByStstus = (status: Status) => this.database$.pipe(
-    map((t) =>
-      t.filterFromStatus(status)
-    )
+    map((t) => t.filterFromStatus(status))
   )
+
+
+  public createdTask = (from: IForm) => {
+    const task: ITask = {
+      id: uuidv4(),
+      conteudo: from.conteudo,
+      status: Status.aFazer,
+      titulo: from.titulo
+    }
+    return task;
+  }
+
+  public taskUpdate(task: ITask, conteudo: IForm): ITask {
+    return {
+      id: task!.id,
+      status: task!.status,
+      ...conteudo,
+    };
+  }
 
 }
 
